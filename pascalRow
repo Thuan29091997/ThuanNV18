@@ -1,0 +1,21 @@
+//https://codelearn.io/Training/Detail?Id=40628
+//tạo phần tử đầu tiên của mảng = 1;
+//xét vòng lặp để tạo từng phần tử của từng hàng
+//nếu phần tử trong hàng là đầu và cuối thì = 1
+// không thì bằng phần tử tại vị trí của hàng trước + với phần tử vị trí trước đó
+// gán lại mảng ban đầu = hàng vừa tạo được để tìm đến hàng tiếp theo
+function pascalRow(n){
+    let result = [];
+    let arr = [1];
+    for(let i = 0; i <=n; i++){
+        for(let j = 0; j <= i; j++){
+            if(j == 0 || j == i){
+                result[j] = 1;
+            }else{
+                result[j] = arr[j-1] + arr[j];
+            }
+        }
+        arr = [...result];
+    }
+    return result;
+}
