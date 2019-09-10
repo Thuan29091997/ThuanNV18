@@ -1,0 +1,18 @@
+//https://codelearn.io/Training/Detail?Id=9587
+//tạo hàm lọc số 0 và trả về số đã lọc
+//tính tổng trước vào sau khi đã lọc số 0
+
+function nonZeros(v, a){
+    let current_sum = v + a;//tổng hiện tại
+    let reduce_sum = deleteZero(current_sum);//tổng khi lọc số 0 từ tổng hiện tại
+    let next_v = deleteZero(v);//số v sau khi lọc 0
+    let next_a = deleteZero(a);// số a sau khi lọc 0
+    let next_sum = next_v + next_a;// tổng của a + v sau khi lọc  0
+    return reduce_sum == next_sum ? "YES" : "NO";//so sánh tổng khi lọc 0 từ tổng hiện tại với tổng của a và v khi lọc 0
+}
+
+function deleteZero(n){
+    let str = n.toString().split('');
+    str = str.filter(item => item != 0);
+    return parseInt(str.join(''));
+}
