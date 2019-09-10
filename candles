@@ -1,0 +1,15 @@
+//https://codelearn.io/Training/Detail?Id=22564
+//vì cứ b cây nến cháy hết thì sẽ tạo nên 1 cây nến mới nên chạy vòng while điều kiện là a - số cây nến ban đầu >= b
+//tạo 1 biến lưu những cây nến đã đốt chưa tạo thành cây mới
+//cộng dồn các cây nến mới với cây nến cũ ra kết quả
+function candles(a, b){
+    let result = a;
+    while(a >= b){
+        let du = a%b;
+        a = (a - du)/b;
+         result += a;
+        a += du;
+       
+    }
+    return result;
+}
