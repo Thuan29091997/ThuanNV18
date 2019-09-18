@@ -1,0 +1,17 @@
+//https://codelearn.io/Training/Detail?Id=16902
+// cắt chuỗi sang mảng, tạo 1 biến lưu vị trí phần tử
+// chạy vòng lặp. kiểm tra 2 phần tử liền kề nếu khác nhau thì cắt. giống nhau thì tăng biến lưu vị trí đến khi đến cuối mảng
+
+
+function onesAndZeros(s){
+    let index = 0;
+    s = s.split('');
+    while(index < s.length - 1){
+        if (s[index] != s[index + 1]) {
+            s.splice(index, 2);
+        }else{
+            index++;
+        }
+    }
+    return s.length;
+}
