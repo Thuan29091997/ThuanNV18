@@ -1,0 +1,22 @@
+//https://codelearn.io/Training/Detail?Id=9049
+// kiểm tra phần tử trong mảng ban đầu khi nào lớn hơn phần tử liền kề sau nó thì cắt mảng từ đầu đến phần từ đó
+// thêm mảng vừa cắt vào cuối mảng ban đầu
+// so sánh từng phần tử của mảng sau khi thêm.nếu phần tử trước lớn hơn hoặc bằng phần tử sau thì trả về false.còn lại trả về true
+
+function cyclicSequence(sequence) {
+    let arr = [];
+    for (let i = 0; i < sequence.length - 1; i++) {
+        if (sequence[i] > sequence[i + 1]) {
+            let a = sequence.slice(0, i + 1)
+            arr = a;
+            sequence.splice(0, a.length);
+        }
+    }
+    sequence.push(...arr);
+    for(let i = 0; i < sequence.length; i++){
+        if(sequence[i] >= sequence[i+1]){
+            return false;
+        }
+    }
+    return true;
+}
