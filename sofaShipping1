@@ -1,0 +1,16 @@
+// https://codelearn.io/Training/Detail?Id=177828
+// tạo biến lưu lại mảng ban đầu, tạo biến lưu lại số lần chuyển.
+// sắp xếp lại mảng ban đầu theo thứ tự tăng dần
+// xét từng phần tử của mảng đã sắp, số lần chuyển của từng phần tử trong mảng đã sắp = vị trí của phần tử đó tại mảng ban đầu
+// sau khi xét phần tử đó thì xóa khỏi mảng đã sắp
+
+function sofaShipping(a) {
+    let b = [...a];
+    let count = 0;
+    a = a.sort((x, y) => x - y);
+    a.forEach(item => {
+        count += b.indexOf(item) + 1;
+        b.splice(b.indexOf(item), 1);
+    });
+    return count;
+}
