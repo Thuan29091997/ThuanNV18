@@ -1,0 +1,35 @@
+// https://codelearn.io/Training/Detail?Id=182621
+// tạo 1 biến tổng
+// kiểm tra nếu mảng tgian chờ rỗng thì trả về kết quả của tgian sinh viên tắm
+// xét tổng tgian từng phần tử với tgian bắt đầu chờ hết nước.nếu nhỏ hơn thì tổng bằng tổng với số tgian phần tử đang xét
+// bỏ phần tử đã xét khỏi mảng, giảm biến đếm
+// xét hết 1 lượt, nếu số phần tử hết thì trả về tổng.không thì tổng = thời gian bắt đầu chờ
+// gán 1 biến result = tgian cuối cùng khi có lại nước
+// kết quả = result + phần tử còn lại trong mảng students
+
+function queueForShower(students, timetable) {
+    let sum = 0;
+    if (timetable.length == 0) {
+        return students.reduce((a, b) => {
+            return a + b;
+        }, 0);
+    }
+    for (let i = 0; i < timetable.length; i++) {
+        for (let j = 0; j < students.length; j++) {
+            if ((sum + students[j]) <= timetable[i][0]) {
+                sum += students[j];
+                students.splice(j, 1);
+                j--;
+            }
+        }
+        if (students.length == 0) {
+            return sum;
+        }
+        sum = timetable[i][1];
+    }
+    let result = timetable[timetable.length - 1][1];
+    for (let i = 0; i < students.length; i++) {
+        result += students[i];
+    }
+    return result;
+}
