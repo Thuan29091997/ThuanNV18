@@ -1,0 +1,23 @@
+// https://codelearn.io/Training/Detail?Id=34670
+// tạo biến sum và n: là biến lưu số số hạng từ số đầu đến số cuối
+// kiểm tra nếu a chẵn thì + thêm 1, lẻ thì + 2
+// kiểm tra nếu b chẵn thì - đi 1, lẻ thì - 2
+// dùng công thức tính số số hạng và tổng
+
+function sumOfOddNumbers(a, b){
+    let sum = 0;
+    let n = 0;
+    if(a % 2 != 0){
+        a += 2;
+    }else if(a % 2 == 0){
+        a += 1;
+    }
+    if(b % 2 != 0){
+        b -= 2;
+    }else if(b % 2 == 0){
+        b -= 1;        
+    }
+    n = (b - a) / 2 + 1;
+    sum = (a + b) * n / 2;
+    return sum % 10000007;
+}
