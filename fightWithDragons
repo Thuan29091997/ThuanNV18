@@ -1,0 +1,26 @@
+// https://codelearn.io/Training/Detail?Id=229280
+// x: đầu ban đầu, d: số đầu bị giết, h: số đầu mọc
+// tạo 1 biến đếm số lần
+// kiểm tra nếu số đầu giết nhỏ hơn số lần mọc lại và nhỏ hơn số đầu ban đầu thì trả về -1.không thể giết
+// kiểm tra lần đầu nếu số đầu giết lớn hơn số đầu ban đầu thì trả về 1
+// chạy vòng lặp, điều kiện thoát vòng lặp là khi số đầu ban đầu trừ số đầu giết nhỏ hơn hoặc bằng 0.
+// trong vòng lặp kiểm tra khi mà số đầu ban đầu nhỏ hơn số đầu giết thì trả về số lần đếm + 1.vì khi đó không thỏa mãn điều kiện vòng lặp,
+sẽ thoát khỏi vòng lặp luôn, không thực hiện phép tăng biến đếm nữa
+
+function fightWithDragons(x, d, h) {
+    let count = 0;
+    if (d < h && d < x) {
+        return -1;
+    }else if(d > x){
+        return 1;
+    }
+    while(x - d > 0){
+        x -= d;
+        count++;
+        x += h;
+        if(x < d){
+             return count + 1;
+        }
+    }
+    return count + 1;
+}
